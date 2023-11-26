@@ -129,8 +129,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-public/*
-!public/.gitkeep
+# public/*
+# !public/.gitkeep
 
 
 .env
