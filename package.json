@@ -17,7 +17,7 @@
     "@generouted/react-router": "^1.16.1",
     "axios": "^1.6.2",
     "browser-image-compression": "^2.0.2",
-    "ckeditor5-custom-build": "file:ckeditor5",
+    "ckeditor5-custom-build": "file:ckeditor5-custom",
     "framer-motion": "^10.16.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

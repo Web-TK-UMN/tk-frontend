@@ -46,6 +46,15 @@ const CKEditorInput = ({ name, control, defaultValue }: CKEditorProps) => {
             const data = editor.getData();
             onChange(data);
           }}
+          onReady={(editor) => {
+            editor.editing.view.change((writer) => {
+              writer.setStyle(
+                "flex",
+                "1 1 auto",
+                editor.editing.view.document.getRoot()!
+              );
+            });
+          }}
         />
       )}
     />
