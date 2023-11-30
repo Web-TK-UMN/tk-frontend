@@ -10,16 +10,24 @@ type CKEditorProps = {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  rules?: any;
   defaultValue?: string;
 };
 
-const CKEditorInput = ({ name, control, defaultValue }: CKEditorProps) => {
+const CKEditorInput = ({
+  name,
+  control,
+  defaultValue,
+  rules,
+}: CKEditorProps) => {
   const auth = useAuth();
   return (
     <Controller
       name={name}
       control={control}
       defaultValue={defaultValue}
+      rules={rules}
       render={({ field: { onChange, onBlur, value, ref, disabled } }) => (
         <CKEditor
           ref={ref}
@@ -46,15 +54,15 @@ const CKEditorInput = ({ name, control, defaultValue }: CKEditorProps) => {
             const data = editor.getData();
             onChange(data);
           }}
-          onReady={(editor) => {
-            editor.editing.view.change((writer) => {
-              writer.setStyle(
-                "flex",
-                "1 1 auto",
-                editor.editing.view.document.getRoot()!
-              );
-            });
-          }}
+          // onReady={(editor) => {
+          //   editor.editing.view.change((writer) => {
+          //     writer.setStyle(
+          //       "flex",
+          //       "1 1 auto",
+          //       editor.editing.view.document.getRoot()!
+          //     );
+          //   });
+          // }}
         />
       )}
     />
