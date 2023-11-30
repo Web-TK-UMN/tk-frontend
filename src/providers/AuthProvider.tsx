@@ -21,7 +21,7 @@ type AuthModel = User & {
 type AuthContext = {
   user: AuthModel | null;
   status: "loading" | "authenticated" | "unauthenticated";
-  login: (email: string, password: string) => void;
+  login: (email: string, password: string, reCAPTCHAToken: string) => void;
   logout: () => void;
 };
 
@@ -70,12 +70,13 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
       });
   }, []);
 
-  const login = (email: string, password: string) => {
+  const login = (email: string, password: string, reCAPTCHAToken: string) => {
     setStatus("loading");
     axios
       .post<ResponseModel<LoginDto>>(baseUrl + "/auth/login", {
         email,
         password,
+        reCAPTCHAToken,
       })
 
       .then((authRes) => {

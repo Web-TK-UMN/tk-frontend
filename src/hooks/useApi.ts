@@ -77,4 +77,16 @@ export const useToastErrorHandler = () => {
   };
 };
 
+// prepare for useSwr hook
+export const useFetcher = () => {
+  const api = useApi();
+  const toastErrorHandler = useToastErrorHandler();
+
+  return (url: string) => {
+    return api
+      .get(url)
+      .then((res) => res.data.data)
+      .catch(toastErrorHandler);
+  };
+};
 export default useApi;

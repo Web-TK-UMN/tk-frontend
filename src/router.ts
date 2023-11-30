@@ -6,9 +6,11 @@ import { components, hooks, utils } from '@generouted/react-router/client'
 export type Path =
   | `/`
   | `/cms`
+  | `/cms/category/:categorySlug/:itemSlug`
+  | `/cms/login`
 
 export type Params = {
-  
+  '/cms/category/:categorySlug/:itemSlug': { categorySlug: string; itemSlug: string }
 }
 
 export type ModalPath = never
