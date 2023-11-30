@@ -2,30 +2,32 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Routes } from "@generouted/react-router";
 import { ChakraProvider } from "@chakra-ui/react";
-import AuthProvider from "./providers/AuthProvider";
+import AuthProvider from "@/providers/AuthProvider";
 import { extendTheme } from "@chakra-ui/react";
+import "@/main.css";
 
 export const theme = extendTheme({
-  // fonts: {
-  //   heading: 'Roboto',
-  //   body: 'Roboto'
-  // },
+  fonts: {
+    heading: "Poppins, sans-serif",
+    body: "Poppins, sans-serif",
+  },
   styles: {
     global: {
-      h1: {
-        fontSize: "3xl",
-        fontWeight: "bold",
-      },
       h2: {
         fontSize: "2xl",
         fontWeight: "bold",
       },
       h3: {
-        fontSize: "lg",
+        fontSize: "xl",
+        fontWeight: "bold",
       },
       h4: {
-        fontSize: "md",
+        fontSize: "lg",
+        fontWeight: "bold",
       },
+      // table: {
+      //   borderCollapse: "collapse",
+      // },
     },
   },
 });
