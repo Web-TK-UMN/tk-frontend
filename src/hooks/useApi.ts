@@ -2,6 +2,7 @@ import axios, { AxiosError, isAxiosError } from "axios";
 import { useAuth } from "@/hooks/useAuth";
 import { useEffect } from "react";
 import { useToast } from "@chakra-ui/react";
+import { useNavigate } from "@/router";
 export const baseUrl =
   import.meta.env.VITE_API_BASE_URL ?? "http://localhost:3000";
 
@@ -29,6 +30,7 @@ export enum Responses {
 
 const useApi = () => {
   const auth = useAuth();
+  const nav = useNavigate();
 
   useEffect(() => {
     if (auth.user) {
@@ -37,9 +39,21 @@ const useApi = () => {
       ] = `Bearer ${auth.user.token}`;
     }
 
+    instance.interceptors.response.use(
+      (response) => response,
+      (error) => {
+        if (error.response.status === 401) {
+          auth.logout();
+          nav("/cms/login");
+        }
+        return Promise.reject(error);
+      }
+    );
+
     return () => {
       delete instance.defaults.headers.common["Authorization"];
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth]);
 
   return instance;
