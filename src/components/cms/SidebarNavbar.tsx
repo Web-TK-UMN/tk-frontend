@@ -831,14 +831,14 @@ const SidebarItems = () => {
         transition={"all 0.2s"}
         h={"4em"}
         w={"full"}
-        roundedLeft={"xl"}
+        // roundedLeft={"xl"}
       >
         <Stack
           w={"0.5em"}
           h={"full"}
           bgColor={loc.pathname === "/cms" ? "#232935" : "transparent"}
           transition={"all 0.2s ease-in-out"}
-          roundedLeft={"xl"}
+          roundedRight={"xl"}
         />
         <Stack direction={"row"} align={"center"} mx={"1em"}>
           <Icon as={FaChartSimple} boxSize={"1.5em"} color={"#232935"} />
@@ -852,7 +852,7 @@ const SidebarItems = () => {
         bgColor={loc.pathname.includes("/cms/category/") ? "#F2F3F7" : "white"}
         h={"4em"}
         w={"full"}
-        roundedLeft={"xl"}
+        // roundedLeft={"xl"}
         justify={"space-between"}
         align={"center"}
         transition={"all 0.2s ease-in-out"}
@@ -866,7 +866,7 @@ const SidebarItems = () => {
                 ? "#232935"
                 : "transparent"
             }
-            roundedLeft={"xl"}
+            roundedRight={"xl"}
           />
           <Stack direction={"row"} align={"center"} mx={"1em"}>
             <Icon as={FaLayerGroup} boxSize={"1.5em"} color={"#232935"} />

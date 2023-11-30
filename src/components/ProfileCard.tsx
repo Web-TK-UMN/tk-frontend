@@ -26,8 +26,8 @@ const ProfileCard = ({
 }) => {
   return (
     <Stack
-      w={["26em", "26em", "30em", "30em", "30em"]}
-      h={["12em", "12em", "14em", "14em", "14em"]}
+      w={["28em", "28em", "30em", "30em", "30em"]}
+      h={["18em", "18em", "16em", "16em", "16em"]}
       rounded={"2xl"}
       bgImage={"/assets/gedung_profile.png"}
       bgPos={"center"}
@@ -41,22 +41,47 @@ const ProfileCard = ({
         h={"65%"}
         w={"full"}
         roundedBottom={"2xl"}
-        direction={"row"}
-        px={["1.5em", "1.5em", "2em", "2em", "2em"]}
-        py={["1em", "1em", "1.5em", "1.5em", "1.5em"]}
+        direction={"column"}
+        px={"1.5em"}
+        pb={["1em", "1em", "1.5em", "1.5em", "1.5em"]}
       >
-        <Stack
-          pt={["1em", "1em", "1.5em", "1.5em", "1.5em"]}
-          gap={0}
-          justify={"space-between"}
-        >
-          <Stack gap={0}>
-            <Heading size={"xs"}>{profile.name}</Heading>
-            <Text fontSize={"xs"} color={"#A5A5A5"}>
-              {profile.position}
-            </Text>
+        <Stack direction={"column"} gap={0} ml={"7em"} mt={"0.5em"}>
+          <Heading size={"sm"}>{profile.name}</Heading>
+          <Text fontSize={"sm"} color={"#A5A5A5"}>
+            {profile.position}
+          </Text>
+        </Stack>
+        <Stack direction={"row"} flex={1} gap={0}>
+          <Stack flex={1}>
+            <Stack gap={0}>
+              <Text color={"#A5A5A5"} fontSize={"sm"}>
+                Email
+              </Text>
+              <Link
+                fontWeight={"medium"}
+                fontSize={"xs"}
+                href={`mailto:${profile.email}`}
+              >
+                {profile.email}
+              </Link>
+            </Stack>
+            <Stack gap={0} justify={"space-between"}>
+              <Stack gap={0}>
+                <Text color={"#A5A5A5"} fontSize={"sm"}>
+                  Expertise
+                </Text>
+                <Text
+                  fontWeight={"medium"}
+                  fontSize={"xs"}
+                  noOfLines={2}
+                  textOverflow={"ellipsis"}
+                >
+                  {profile.expertise}
+                </Text>
+              </Stack>
+            </Stack>
           </Stack>
-          <Stack direction={"row"}>
+          <Stack direction={"row"} align={"end"} justify={"end"}>
             <Button
               as={Link}
               href={profile.profileUrl}
@@ -91,42 +116,17 @@ const ProfileCard = ({
             </Button>
           </Stack>
         </Stack>
-        <Stack
-          flex={1}
-          direction={"column"}
-          fontSize={"xs"}
-          align={"end"}
-          textAlign={"end"}
-          gap={0}
-        >
-          <Stack
-            gap={0}
-            fontSize={["0.6em", "0.6em", "0.8em", "0.8em", "0.8em"]}
-          >
-            <Text color={"#A5A5A5"}>Email</Text>
-            <Link href={`mailto:${profile.email}`} fontWeight={"medium"}>
-              {profile.email}
-            </Link>
-          </Stack>
-          <Stack
-            gap={0}
-            fontSize={["0.6em", "0.6em", "0.8em", "0.8em", "0.8em"]}
-          >
-            <Text color={"#A5A5A5"}>Expertise</Text>
-            <Text fontWeight={"medium"}>{profile.expertise}</Text>
-          </Stack>
-        </Stack>
       </Stack>
       <Image
         pos={"absolute"}
-        boxSize={["4em", "4em", "6em", "6em", "6em"]}
+        boxSize={"6em"}
         objectFit={"cover"}
         objectPosition={"center"}
         src={profile.picUrl}
         rounded={"full"}
         outline={"4px solid white"}
-        top={["2em", "2em", "1.5em", "1.5em", "1.5em"]}
-        left={"2em"}
+        top={"2.5em"}
+        left={"1.5em"}
       />
       {isEditable && (
         <Button
