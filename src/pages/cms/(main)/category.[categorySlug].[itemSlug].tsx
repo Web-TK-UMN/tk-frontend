@@ -421,6 +421,7 @@ const ProfilePageEditor = ({ data }: { data: ProfilePageDto | null }) => {
               });
               resetProfile();
             }}
+            isDisabled={!data}
           >
             Add Profile
           </Button>
