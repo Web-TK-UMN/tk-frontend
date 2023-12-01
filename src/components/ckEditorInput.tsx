@@ -37,11 +37,10 @@ const CKEditorInput = ({
           config={{
             simpleUpload: {
               // The URL that the images are uploaded to.
-              uploadUrl:
-                import.meta.env.VITE_API_BASE_URL + "/upload/ckEditor/",
+              uploadUrl: import.meta.env.VITE_API_BASE_URL + "/upload/",
 
               // Enable the XMLHttpRequest.withCredentials property.
-              withCredentials: true,
+              // withCredentials: true,
 
               // Headers sent along with the XMLHttpRequest to the upload server.
               headers: {
