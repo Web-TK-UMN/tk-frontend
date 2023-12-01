@@ -1,3 +1,4 @@
+import Footer from "@/components/GenericFooter";
 import { Stack, Text, Heading, Image, Divider } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
@@ -103,6 +104,7 @@ const IndexPage = () => {
           </motion.div>
         </Stack>
       </Stack>
+      <Footer />
     </Stack>
   );
 };
