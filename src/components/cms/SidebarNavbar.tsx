@@ -249,7 +249,7 @@ const CategoryPanel = () => {
                           <Text flex={1} textAlign={"start"}>
                             {category.name}
                           </Text>
-                          <Stack direction={"row"} gap={0} mr={"0.4em"}>
+                          <Stack direction={"row"} gap={0}>
                             <Tooltip
                               label={"Edit this category"}
                               rounded={"md"}
@@ -257,15 +257,15 @@ const CategoryPanel = () => {
                               <IconButton
                                 size={"xs"}
                                 aria-label="edit category"
-                                variant={"ghost"}
-                                rounded={"full"}
+                                variant={"unstyled"}
+                                // rounded={"full"}
                                 icon={<FaPenToSquare />}
-                                bgColor={"white"}
+                                // bgColor={"white"}
                                 color={"#232935"}
-                                _hover={{
-                                  bgColor: "#232935",
-                                  color: "white",
-                                }}
+                                // _hover={{
+                                //   bgColor: "#232935",
+                                //   color: "white",
+                                // }}
                                 onClick={(event) => {
                                   event.stopPropagation();
                                   setModalState({
@@ -281,18 +281,17 @@ const CategoryPanel = () => {
                               rounded={"md"}
                             >
                               <IconButton
-                                ml={"0.5em"}
                                 size={"xs"}
                                 aria-label="add item"
-                                variant={"ghost"}
-                                rounded={"full"}
+                                variant={"unstyled"}
+                                // rounded={"full"}
                                 icon={<FaPlus />}
-                                bgColor={"white"}
+                                // bgColor={"white"}
                                 color={"#232935"}
-                                _hover={{
-                                  bgColor: "#232935",
-                                  color: "white",
-                                }}
+                                // _hover={{
+                                //   bgColor: "#232935",
+                                //   color: "white",
+                                // }}
                                 onClick={(event) => {
                                   event.stopPropagation();
                                   // Add your logic here
@@ -348,8 +347,9 @@ const CategoryPanel = () => {
                             <AccordionPanel
                               ref={provided.innerRef}
                               {...provided.droppableProps}
-                              p={"0.5em"}
-                              pl={"1.5em"}
+                              // p={"0.5em"}
+                              // pl={"1.5em"}
+                              p={0}
                             >
                               {category.items.length === 0 && (
                                 <Text ml={"1em"} fontSize={"sm"}>
@@ -364,10 +364,18 @@ const CategoryPanel = () => {
                                       direction={"row"}
                                       align={"center"}
                                       justify={"space-between"}
-                                      ml={"1em"}
+                                      // ml={"1em"}
                                       gap={0}
                                       ref={provided.innerRef}
                                       {...provided.draggableProps}
+                                      bgColor={
+                                        item.slug === params.itemSlug
+                                          ? "#3C465B"
+                                          : undefined
+                                      }
+                                      transition={"all 0.2s ease-in-out"}
+                                      pl={"1.5em"}
+                                      rounded={"md"}
                                     >
                                       <Stack direction={"row"} align={"center"}>
                                         <Tooltip
@@ -384,6 +392,12 @@ const CategoryPanel = () => {
                                               event.stopPropagation();
                                               // Add your logic here
                                             }}
+                                            color={
+                                              item.slug === params.itemSlug
+                                                ? "white"
+                                                : "#232935"
+                                            }
+                                            transition={"all 0.2s ease-in-out"}
                                             {...provided.dragHandleProps}
                                           />
                                         </Tooltip>
@@ -396,6 +410,12 @@ const CategoryPanel = () => {
                                           fontWeight={"normal"}
                                           textOverflow={"ellipsis"}
                                           noOfLines={1}
+                                          color={
+                                            item.slug === params.itemSlug
+                                              ? "white"
+                                              : "#232935"
+                                          }
+                                          transition={"all 0.2s ease-in-out"}
                                         >
                                           {item.title}
                                         </Link>
@@ -405,18 +425,23 @@ const CategoryPanel = () => {
                                         rounded={"md"}
                                       >
                                         <IconButton
-                                          mr={"0.4em"}
+                                          mr={"0.5em"}
                                           size={"xs"}
                                           aria-label="edit item"
-                                          variant={"ghost"}
-                                          rounded={"full"}
+                                          variant={"unstyled"}
+                                          // rounded={"full"}
                                           icon={<FaPenToSquare />}
-                                          bgColor={"white"}
-                                          color={"#232935"}
-                                          _hover={{
-                                            bgColor: "#232935",
-                                            color: "white",
-                                          }}
+                                          // bgColor={"white"}
+                                          color={
+                                            item.slug === params.itemSlug
+                                              ? "white"
+                                              : "#232935"
+                                          }
+                                          transition={"all 0.2s ease-in-out"}
+                                          // _hover={{
+                                          //   bgColor: "#232935",
+                                          //   color: "white",
+                                          // }}
                                           onClick={(event) => {
                                             event.stopPropagation();
                                             setModalState({
