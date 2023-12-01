@@ -9,8 +9,6 @@ import {
   Spinner,
   Stack,
   Text,
-  Image,
-  Box,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
