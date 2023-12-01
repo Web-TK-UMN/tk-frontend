@@ -702,6 +702,10 @@ const ContentEditor = () => {
     `/item/${params.categorySlug}/${params.itemSlug}`
   );
 
+  useEffect(() => {
+    document.title = "CMS | Content Editor";
+  }, []);
+
   if (isLoading) {
     return (
       <Stack flex={1} align={"center"} justify={"center"}>

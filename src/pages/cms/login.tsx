@@ -31,6 +31,10 @@ const LoginPage = () => {
   } = useForm<LoginDto>();
 
   useEffect(() => {
+    document.title = "CMS | Login";
+  }, []);
+
+  useEffect(() => {
     if (auth.status === "authenticated") {
       nav("/cms");
     }
