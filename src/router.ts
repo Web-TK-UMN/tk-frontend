@@ -8,7 +8,6 @@ export type Path =
   | `/cms`
   | `/cms/category/:categorySlug/:itemSlug`
   | `/cms/login`
-  | `/cms/titip`
 
 export type Params = {
   '/cms/category/:categorySlug/:itemSlug': { categorySlug: string; itemSlug: string }
