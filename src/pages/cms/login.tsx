@@ -161,6 +161,7 @@ const LoginPage = () => {
           h={["60vh", "60vh", "100vh", "100vh", "100vh"]}
           bgColor={"white"}
           roundedTop={["2em", "2em", "0", "0", "0"]}
+          zIndex={5}
         >
           <Stack direction={"row"} align={"center"}>
             <Text
