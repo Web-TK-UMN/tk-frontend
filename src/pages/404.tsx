@@ -40,7 +40,9 @@ const GenericNotFoundPage = () => {
           p={"1em"}
         >
           <Heading size={"4xl"}>404</Heading>
-          <Heading size={"xl"}>Page not found</Heading>
+          <Heading size={"xl"} textColor={"#D87B2B"}>
+            Page not found
+          </Heading>
 
           <Text textAlign={"center"}>
             We can't seem to find the page that you are looking for.
