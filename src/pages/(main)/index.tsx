@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 const IndexPage = () => {
   return (
     <Stack minH={"100vh"} overflow={"auto"}>
-      {/* <Stack
+      <Stack
         as={"video"}
         autoPlay
         loop
         playsInline
         muted
-        src="/assets/cinematic.mp4"
+        src={"/assets/cinematic.mp4"}
         h={"100vh"}
         w={"100vw"}
         objectFit={"cover"}
@@ -19,19 +19,13 @@ const IndexPage = () => {
         zIndex={-1}
         top={0}
         left={0}
-      /> */}
+      />
       <Stack
         h={"100vh"}
         align={"center"}
         justify={"center"}
         pos={"relative"}
         gap={0}
-        // replace kalo cinematic udah jadi
-        bgImage={"/assets/bg_sementara.png"}
-        bgRepeat={"no-repeat"}
-        bgPosition={"center"}
-        bgSize={"cover"}
-        // replace kalo cinematic udah jadi
       >
         <Stack flex={1} align={"center"} justify={"center"}>
           <motion.div
@@ -68,6 +62,7 @@ const IndexPage = () => {
               <Heading
                 color={"#003D73"}
                 size={["lg", "lg", "xl", "2xl", "2xl"]}
+                textShadow="0px 1px 5px rgba(0,0,0,0.25)"
               >
                 TEKNIK KOMPUTER
               </Heading>
@@ -93,11 +88,12 @@ const IndexPage = () => {
               fontWeight={"semibold"}
               textColor={"white"}
               size={["3xl", "3xl", "3xl", "4xl", "4xl"]}
+              textShadow="0px 1px 5px rgba(0,0,0,0.25)"
             >
               <Text as={"span"} color={"#003D73"}>
                 Coming
               </Text>{" "}
-              <Text as={"span"} color={"#FD8E09"}>
+              <Text as={"span"} color={"#D87B2B"}>
                 Soon!
               </Text>
             </Heading>
