@@ -1,4 +1,4 @@
-import { Box, Stack } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 const ScrollDownAnim = () => {
@@ -7,7 +7,7 @@ const ScrollDownAnim = () => {
     <Box
       w={"1.5em"}
       h={"2.5em"}
-      border={"solid 2px white"}
+      border={"solid 2px #003D73"}
       rounded={"full"}
       //   align={"center"}
       //   justify={"center"}
@@ -26,7 +26,7 @@ const ScrollDownAnim = () => {
         <Box
           w={"0.25em"}
           h={"0.5em"}
-          bgColor={"white"}
+          bgColor={"#003D73"}
           rounded={"full"}
           pos={"relative"}
           top={"0.5em"}
