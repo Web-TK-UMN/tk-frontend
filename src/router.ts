@@ -5,11 +5,13 @@ import { components, hooks, utils } from '@generouted/react-router/client'
 
 export type Path =
   | `/`
+  | `/:categorySlug/:itemSlug`
   | `/cms`
   | `/cms/category/:categorySlug/:itemSlug`
   | `/cms/login`
 
 export type Params = {
+  '/:categorySlug/:itemSlug': { categorySlug: string; itemSlug: string }
   '/cms/category/:categorySlug/:itemSlug': { categorySlug: string; itemSlug: string }
 }
 
