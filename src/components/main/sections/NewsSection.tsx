@@ -1,8 +1,11 @@
-import { Stack, Image, Wrap, Spinner, Text } from "@chakra-ui/react";
+import { Stack, Image, Wrap, Spinner, Text, Show, Box } from "@chakra-ui/react";
 import NewsCard from "@/components/NewsCard";
 import useSWR from "swr";
 import axios from "axios";
 import { motion } from "framer-motion";
+
+import Slider from "react-slick";
+import { useEffect } from "react";
 
 type Category = {
   name: string;
@@ -31,7 +34,6 @@ const NewsSection = () => {
         bgImage={"/assets/bgNews.png"}
         bgSize="cover"
         bgPosition="center"
-        p={"1em"}
         py={"4em"}
       >
         <motion.div
@@ -67,25 +69,51 @@ const NewsSection = () => {
             <Text>Loading...</Text>
           </Stack>
         )}
-        {data && (
-          <Wrap spacing={"1em"} justify="center" style={{ gap: "1em" }}>
-            {data.data.map((news, index) => (
-              <motion.div
-                key={index}
-                viewport={{ once: true }}
-                initial={{ opacity: 0, y: -10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.2,
-                  ease: "easeOut",
-                }}
-              >
+        <Show above="md">
+          {data && (
+            <Wrap spacing={"1em"} justify="center" style={{ gap: "1em" }}>
+              {data.data.map((news, index) => (
+                <motion.div
+                  key={index}
+                  viewport={{ once: true }}
+                  initial={{ opacity: 0, y: -10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.2,
+                    ease: "easeOut",
+                  }}
+                >
+                  <NewsCard data={news} />
+                </motion.div>
+              ))}
+            </Wrap>
+          )}
+        </Show>
+
+        <Show below="md">
+          {data && (
+            <Slider
+              dots={true}
+              infinite={true}
+              speed={500}
+              slidesToShow={1}
+              slidesToScroll={1}
+              draggable={true}
+              arrows={false}
+              autoplay={true}
+              autoplaySpeed={3000}
+              pauseOnHover={true}
+              pauseOnFocus={true}
+              easing="ease-in-out"
+              centerMode={true}
+            >
+              {data.data.map((news) => (
                 <NewsCard data={news} />
-              </motion.div>
-            ))}
-          </Wrap>
-        )}
+              ))}
+            </Slider>
+          )}
+        </Show>
       </Stack>
     </>
   );
