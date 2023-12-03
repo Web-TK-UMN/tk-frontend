@@ -16,6 +16,7 @@ const IndexPage = () => {
         w={"100vw"}
         objectFit={"cover"}
         pos={"fixed"}
+        poster={"/assets/bg_sementara.png"}
         zIndex={-1}
         top={0}
         left={0}

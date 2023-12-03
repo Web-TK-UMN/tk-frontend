@@ -26,7 +26,7 @@ const GenericNotFoundPage = () => {
         pos={"relative"}
         gap={0}
         // replace kalo cinematic udah jadi
-        bgImage={"/assets/bg_sementara.png"}
+        bgImage={"/assets/bg.png"}
         bgRepeat={"no-repeat"}
         bgPosition={"center"}
         bgSize={"cover"}
