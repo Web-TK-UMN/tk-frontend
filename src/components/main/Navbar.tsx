@@ -26,11 +26,10 @@ import {
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
-  Box,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FaBars, FaChevronDown } from "react-icons/fa6";
-import { Link as RouterLink } from "react-router-dom";
+import { FaBars, FaCaretLeft, FaChevronDown } from "react-icons/fa6";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 import useSWR from "swr";
 
 type CategoryDto = {
@@ -56,6 +55,7 @@ type CategoryDto = {
 const Navbar = () => {
   const { isLoading, data } = useSWR<CategoryDto[]>(`/category/`);
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const loc = useLocation();
 
   return (
     <Stack
@@ -272,27 +272,70 @@ const Navbar = () => {
             <DrawerHeader my={"1em"}>
               <DrawerCloseButton m={"1.25em"} color={"#003D73"} />
             </DrawerHeader>
-            <DrawerBody>
-              <Accordion allowToggle>
+            <DrawerBody p={0}>
+              <Accordion
+                allowToggle
+                defaultIndex={
+                  // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+                  data?.findIndex((pred) => loc.pathname.includes(pred.slug))! +
+                  1
+                }
+              >
                 <Stack gap={"1em"}>
-                  <AccordionItem border={"none"} color={"#003D73"}>
-                    <Button
-                      as={RouterLink}
-                      to={"/"}
-                      variant={"ghost"}
-                      fontWeight={"semibold"}
-                      w={"full"}
-                      display={"flex"}
-                      alignItems={"center"}
-                      justifyContent={"start"}
+                  <motion.div
+                    viewport={{ once: true }}
+                    initial={{
+                      opacity: 0,
+                      y: -10,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    transition={{
+                      duration: 0.25,
+                      ease: "easeOut",
+                      delay: 0.15,
+                    }}
+                  >
+                    <AccordionItem
+                      border={"none"}
                       color={"#003D73"}
-                      _hover={{
-                        color: "#FD8E09",
-                      }}
+                      bgColor={
+                        loc.pathname === "/"
+                          ? "rgba(0, 61, 115, 0.1)"
+                          : undefined
+                      }
                     >
-                      Home
-                    </Button>
-                  </AccordionItem>
+                      <AccordionButton
+                        as={RouterLink}
+                        to={"/"}
+                        fontWeight={"semibold"}
+                        w={"full"}
+                        display={"flex"}
+                        alignItems={"center"}
+                        justifyContent={"start"}
+                        color={"#003D73"}
+                        _hover={{
+                          color: "#FD8E09",
+                        }}
+                        h={"3em"}
+                        p={0}
+                        gap={"2em"}
+                        fontSize={"lg"}
+                        transition={"all 0.3s ease-in-out"}
+                      >
+                        <Stack
+                          bgColor={loc.pathname === "/" ? "#013D71" : undefined}
+                          w={"0.35em"}
+                          h={"full"}
+                          roundedRight={"xl"}
+                          transition={"all 0.3s ease-in-out"}
+                        />
+                        <Text as={"span"}>Home</Text>
+                      </AccordionButton>
+                    </AccordionItem>
+                  </motion.div>
                   {isLoading && (
                     <Stack direction={"row"} align={"center"} gap={"0.5em"}>
                       <Spinner size={"xs"} />
@@ -301,61 +344,133 @@ const Navbar = () => {
                   )}
 
                   {data &&
-                    data.map((category) => (
-                      <AccordionItem
-                        border={"none"}
-                        color={"#003D73"}
-                        key={category.id}
+                    data.map((category, index) => (
+                      <motion.div
+                        key={index}
+                        viewport={{ once: true }}
+                        initial={{
+                          opacity: 0,
+                          y: -10,
+                        }}
+                        whileInView={{
+                          opacity: 1,
+                          y: 0,
+                        }}
+                        transition={{
+                          duration: 0.25,
+                          ease: "easeOut",
+                          delay: 0.15 + index * 0.1,
+                        }}
                       >
-                        <AccordionButton
-                          _hover={{
-                            color: "#FD8E09",
-                          }}
+                        <AccordionItem
+                          border={"none"}
+                          color={"#003D73"}
+                          key={category.id}
                         >
-                          <Box
-                            as="span"
+                          <AccordionButton
                             fontWeight={"semibold"}
-                            flex="1"
-                            textAlign="left"
+                            w={"full"}
+                            display={"flex"}
+                            alignItems={"center"}
+                            justifyContent={"space-between"}
+                            color={"#003D73"}
+                            bgColor={
+                              loc.pathname.includes(`/${category.slug}`)
+                                ? "rgba(0, 61, 115, 0.1)"
+                                : undefined
+                            }
                             _hover={{
                               color: "#FD8E09",
                             }}
+                            h={"3em"}
+                            p={0}
+                            gap={"2em"}
+                            fontSize={"lg"}
+                            transition={"all 0.3s ease-in-out"}
                           >
-                            {category.name}
-                          </Box>
-                          <AccordionIcon />
-                        </AccordionButton>
-                        <AccordionPanel p={0} pl={"1em"}>
-                          {category.items.map((item) => (
-                            <Link
-                              key={item.id}
-                              as={item.type === "LINK" ? undefined : RouterLink}
-                              to={`/${category.slug}/${item.slug}`}
-                              href={
-                                item.type === "LINK"
-                                  ? item.item?.url
+                            <Stack
+                              bgColor={
+                                loc.pathname.includes(`/${category.slug}`)
+                                  ? "#013D71"
                                   : undefined
                               }
-                              isExternal={item.type === "LINK"}
-                              variant={"ghost"}
-                              fontWeight={"semibold"}
-                              fontSize={"sm"}
-                              w={"full"}
-                              display={"flex"}
-                              alignItems={"center"}
-                              justifyContent={"start"}
-                              color={"#003D73"}
-                              _hover={{
-                                color: "#FD8E09",
-                              }}
-                              my={"1em"}
-                              ml={"1em"}
-                            >
-                              {item.title}
-                            </Link>
-                          ))}
-                        </AccordionPanel>
-                      </AccordionItem>
+                              w={"0.35em"}
+                              h={"full"}
+                              roundedRight={"xl"}
+                              transition={"all 0.3s ease-in-out"}
+                            />
+                            <Stack direction={"row"} flex={1}>
+                              <Text as={"span"}>{category.name}</Text>
+                            </Stack>
+                            <AccordionIcon mx={"1.25em"} />
+                          </AccordionButton>
+                          <AccordionPanel
+                            p={0}
+                            my={"0.5em"}
+                            ml={"2.5em"}
+                            bgColor={
+                              loc.pathname.includes(`/${category.slug}`)
+                                ? "rgba(0, 61, 115, 0.1)"
+                                : undefined
+                            }
+                            roundedLeft={"lg"}
+                            transition={"all 0.3s ease-in-out"}
+                          >
+                            {category.items.map((item) => (
+                              <Link
+                                key={item.id}
+                                as={
+                                  item.type === "LINK" ? undefined : RouterLink
+                                }
+                                to={`/${category.slug}/${item.slug}`}
+                                href={
+                                  item.type === "LINK"
+                                    ? item.item?.url
+                                    : undefined
+                                }
+                                isExternal={item.type === "LINK"}
+                                variant={"ghost"}
+                                fontWeight={"semibold"}
+                                fontSize={"sm"}
+                                w={"full"}
+                                display={"flex"}
+                                alignItems={"center"}
+                                justifyContent={"start"}
+                                color={
+                                  loc.pathname.includes(`/${item.slug}`)
+                                    ? "white"
+                                    : "#003D73"
+                                }
+                                bgColor={
+                                  loc.pathname.includes(`/${item.slug}`)
+                                    ? "#003D73"
+                                    : undefined
+                                }
+                                _hover={{
+                                  color: "#FD8E09",
+                                }}
+                                py={"0.5em"}
+                                px={"1.5em"}
+                                roundedLeft={"md"}
+                                transition={"all 0.3s ease-in-out"}
+
+                                // m={"1em"}
+                              >
+                                {item.title}
+                                <Icon
+                                  as={FaCaretLeft}
+                                  ml={"auto"}
+                                  opacity={
+                                    loc.pathname.includes(`/${item.slug}`)
+                                      ? 1
+                                      : 0
+                                  }
+                                />
+                              </Link>
+                            ))}
+                          </AccordionPanel>
+                        </AccordionItem>
+                      </motion.div>
                     ))}
                 </Stack>
               </Accordion>
