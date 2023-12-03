@@ -143,7 +143,7 @@ const DynamicContent = () => {
         h={"16em"}
         color={"white"}
         justify={"center"}
-        p={["1em", "1em", "4em", "4em", "4em"]}
+        px={["1em", "1em", "4em", "4em", "4em"]}
         roundedBottom={"xl"}
       >
         <motion.div
@@ -194,7 +194,7 @@ const DynamicContent = () => {
         </motion.div>
       </Stack>
 
-      <Stack p={["1em", "1em", "4em", "4em", "4em"]} flex={1}>
+      <Stack mb={"4em"} p={["1em", "1em", "4em", "4em", "4em"]} flex={1}>
         {data.type === "DYNAMIC" && (
           // render dynamic content as html
           <motion.div
