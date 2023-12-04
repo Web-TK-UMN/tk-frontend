@@ -435,7 +435,7 @@ const Navbar = () => {
                                 w={"full"}
                                 display={"flex"}
                                 alignItems={"center"}
-                                justifyContent={"start"}
+                                justifyContent={"space-between"}
                                 color={
                                   loc.pathname.includes(`/${item.slug}`)
                                     ? "white"
@@ -459,12 +459,12 @@ const Navbar = () => {
                                 {item.title}
                                 <Icon
                                   as={FaCaretLeft}
-                                  ml={"auto"}
                                   opacity={
                                     loc.pathname.includes(`/${item.slug}`)
                                       ? 1
                                       : 0
                                   }
+                                  mx={"0.75em"}
                                 />
                               </Link>
                             ))}
