@@ -61,7 +61,7 @@ const Navbar = () => {
     <Stack
       w={"full"}
       h={"5em"}
-      roundedTop={"xl"}
+      roundedBottom={"2xl"}
       direction={"row"}
       align={"center"}
       justify={"space-between"}
