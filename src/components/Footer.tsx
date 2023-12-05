@@ -4,58 +4,60 @@ const Footer = () => {
   return (
     <>
       <Stack
+        as={"footer"}
         bgImage={"/assets/bgFooter.png"}
         bgPosition={"center"}
         bgSize={"cover"}
-        minH={"429px"}
+        minH={"28em"}
         color={"white"}
+        gap={0}
+        zIndex={2}
+        py={"4em"}
+        px={["2em", "2em", "6em", "6em", "6em"]}
+        roundedTop={"2xl"}
       >
         <Stack
           flexDirection={["column", "column", "column", "row", "row"]}
-          marginBottom={["3.5em", "3.5em", "2.5em", "2.5em", "2.5em"]}
+          gap={"3em"}
         >
-          <Stack flex={"1.3"}>
+          <Stack flex={"1"}>
             <Image
               src="/assets/LogoUMNdanText.svg"
               w={"20em"}
-              marginStart={["1em", "1em", "1em", "5.2em", "5.2em"]}
-              marginTop={"3.3em"}
+              // marginStart={["1em", "1em", "1em", "5.2em", "5.2em"]}
+              // marginTop={"3.3em"}
             />
-            <Text
-              marginStart={["1.3em", "1.3em", "1.3em", "4.56em", "4.56em"]}
-              marginEnd={["1em", "1em", "1em", "1em", "1em"]}
-              fontSize={"xl"}
-              fontWeight={"semibold"}
-              paddingTop={"1em"}
-            >
+            <Text fontSize={"xl"} fontWeight={"semibold"} paddingTop={"1em"}>
               Fakultas Teknik & Informatika <br />
               Universitas Multimedia Nusantara
             </Text>
-            <Text
-              fontSize={"md"}
-              marginStart={["1.5em", "1.5em", "1.5em", "5.7em", "5.7em"]}
-              marginEnd={["1em", "1em", "1em", "1em", "1em"]}
-            >
+            <Text fontSize={"md"}>
               Jl. Scientia Boulevard, Gading Serpong, Kel. Curug <br />
-              Sangereng, Kec. Kelapa Dua, Kab. Tangerang, Prop. <br />
+              Sangereng, Kec. Kelapa Dua, Kab. Tangerang, Prov. <br />
               Banten 15810, Indonesia
             </Text>
           </Stack>
-          <Stack flex={"0.9"} paddingTop={"4.5em"}>
+          <Stack flex={"1"}>
             <Stack flexDirection={"row"}>
-              <Stack
-                marginStart={["1.5em", "1.5em", "1.5em", "5.5em", "5.5em"]}
-                marginEnd={["1em", "1em", "1em", "1em", "1em"]}
-                flex={"1"}
-              >
+              <Stack flex={"1"}>
                 <Text fontSize={"xl"} fontWeight={"semibold"}>
                   Links
                 </Text>
-                <Link>My UMN</Link>
-                <Link>E-Learning</Link>
-                <Link>Gapura</Link>
-                <Link>Library</Link>
-                <Link>CDC</Link>
+                <Link href={"https://my.umn.ac.id/"} isExternal>
+                  My UMN
+                </Link>
+                <Link href={"https://elearning.umn.ac.id/"} isExternal>
+                  E-Learning
+                </Link>
+                <Link href={"https://elearning.umn.ac.id/"} isExternal>
+                  Gapura
+                </Link>
+                <Link href={"https://library.umn.ac.id"} isExternal>
+                  Library
+                </Link>
+                <Link href={"https://cdc.umn.ac.id/"} isExternal>
+                  CDC
+                </Link>
               </Stack>
               <Stack flex={"1"}>
                 <Text fontSize={"xl"} fontWeight={"semibold"}>
@@ -69,19 +71,12 @@ const Footer = () => {
               </Stack>
             </Stack>
           </Stack>
-          <Stack flex={"1.2"} paddingTop={"4.5em"}>
-            <Text
-              fontSize={"xl"}
-              fontWeight={"semibold"}
-              marginStart={["1.2em", "1.2em", "1.2em", "4em", "4em"]}
-              marginEnd={["1em", "1em", "1em", "1em", "1em"]}
-            >
+          <Stack flex={"1"}>
+            <Text fontSize={"xl"} fontWeight={"semibold"}>
               Admission Information
             </Text>
             <Stack
               bgColor={"whiteAlpha.300"}
-              marginStart={["1.3em", "1.3em", "1.3em", "5em", "5em"]}
-              marginEnd={["1.3em", "1.3em", "1.3em", "5.5em", "5.5em"]}
               borderRadius={"1em"}
               padding={"1em"}
             >
