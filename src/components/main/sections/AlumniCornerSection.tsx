@@ -49,7 +49,7 @@ const AlumniCornerSectionSection = () => {
 
   return (
     <Stack
-      bgImage={"/assets/bgGeneric.png"}
+      bgImage={"/assets/bgUMNblue.png"}
       bgSize={"cover"}
       bgPos={"center"}
       bgRepeat={"no-repeat"}
