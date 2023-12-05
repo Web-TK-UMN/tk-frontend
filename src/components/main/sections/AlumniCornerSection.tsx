@@ -1,4 +1,12 @@
-import { Stack, Image, Text, Box, IconButton, Icon } from "@chakra-ui/react";
+import {
+  Stack,
+  Image,
+  Text,
+  Box,
+  IconButton,
+  Icon,
+  VisuallyHidden,
+} from "@chakra-ui/react";
 import AlumniProfile from "@/components/main/AlumniProfile";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
@@ -65,6 +73,7 @@ const AlumniCornerSectionSection = () => {
           delay: 0.5,
         }}
       >
+        <VisuallyHidden>Alumni Corner</VisuallyHidden>
         <Image
           src={"/assets/TextAlumniCorner.svg"}
           w={["18em", "18em", "24em", "24em", "24em"]}
@@ -118,30 +127,30 @@ const AlumniCornerSectionSection = () => {
                     picUrl: alumni.picUrl,
                   }}
                 />
-                <Stack
-                  flex={1}
-                  m={["none", "none", "none", "3em", "3em"]}
-                  p={"2em"}
-                  border={"4px solid white"}
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: -10,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 1,
+                    ease: "easeOut",
+                    delay: 0.5,
+                  }}
                 >
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                      y: -10,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    transition={{
-                      duration: 1,
-                      ease: "easeOut",
-                      delay: 0.5,
-                    }}
+                  <Stack
+                    flex={1}
+                    m={["none", "none", "none", "3em", "3em"]}
+                    p={"2em"}
+                    border={"4px solid white"}
                   >
                     <Text textColor={"white"}>{alumni.quotes}</Text>
-                  </motion.div>
-                </Stack>
+                  </Stack>
+                </motion.div>
               </Stack>
             </Box>
           ))}

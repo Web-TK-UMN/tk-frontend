@@ -16,7 +16,7 @@ type Alumni = {
 
 const AlumniProfile = ({ data }: { data: Alumni }) => {
   return (
-    <Stack pos={"relative"} h={"20em"} w={"20em"} overflow={"hidden"}>
+    <Stack pos={"relative"} h={"23em"} w={"20em"} overflow={"hidden"}>
       <motion.div
         initial={{
           y: 25,
