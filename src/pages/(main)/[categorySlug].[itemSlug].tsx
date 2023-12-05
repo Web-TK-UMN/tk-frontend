@@ -13,6 +13,7 @@ import {
 import useSWR from "swr";
 
 import { motion } from "framer-motion";
+import { MotionBox, MotionStack } from "@/components/ChakraFramer";
 
 type Author = {
   name: string;
@@ -146,15 +147,12 @@ const DynamicContent = () => {
         px={["2em", "2em", "6em", "6em", "6em"]}
         roundedBottom={"xl"}
       >
-        <motion.div
+        <MotionStack
           key={data.id}
-          style={{
-            display: "flex",
-            gap: "0.5em",
-            flexDirection: "column",
-            justifyContent: "start",
-            alignItems: "start",
-          }}
+          gap={"0.5em"}
+          flexDir={"column"}
+          alignItems={"start"}
+          justifyContent={"start"}
           viewport={{ once: true }}
           initial={{
             opacity: 0,
@@ -164,6 +162,7 @@ const DynamicContent = () => {
             opacity: 1,
             x: 0,
           }}
+          // @ts-expect-error chakra ui typescript error
           transition={{
             duration: 1,
             ease: "easeOut",
@@ -191,7 +190,7 @@ const DynamicContent = () => {
               <BreadcrumbLink href="#">{data.title}</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
-        </motion.div>
+        </MotionStack>
       </Stack>
 
       <Stack mb={"4em"} p={["2em", "2em", "6em", "6em", "6em"]} flex={1}>
@@ -249,7 +248,7 @@ const DynamicContent = () => {
               my={"4em"}
             >
               {data.content.profile.map((profile, index) => (
-                <motion.div
+                <MotionBox
                   viewport={{ once: true }}
                   initial={{
                     opacity: 0,
@@ -259,6 +258,7 @@ const DynamicContent = () => {
                     opacity: 1,
                     y: 0,
                   }}
+                  // @ts-expect-error chakra ui typescript error
                   transition={{
                     duration: 1,
                     ease: "easeOut",
@@ -267,7 +267,7 @@ const DynamicContent = () => {
                   key={profile.id}
                 >
                   <ProfileCard profile={profile} />
-                </motion.div>
+                </MotionBox>
               ))}
             </Wrap>
           </>

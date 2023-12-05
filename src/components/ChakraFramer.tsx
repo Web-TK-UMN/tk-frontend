@@ -13,5 +13,21 @@ export const MotionStack = chakra(motion.div, {
 });
 
 export const MotionBox = chakra(motion.div, {
-  shouldForwardProp: isValidMotionProp,
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+export const MotionIcon = chakra(motion.svg, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+export const MotionImage = chakra(motion.img, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+export const MotionButton = chakra(motion.button, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
 });

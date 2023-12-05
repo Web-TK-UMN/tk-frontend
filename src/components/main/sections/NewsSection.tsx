@@ -2,9 +2,9 @@ import { Stack, Image, Wrap, Spinner, Text, Show } from "@chakra-ui/react";
 import NewsCard from "@/components/NewsCard";
 import useSWR from "swr";
 import axios from "axios";
-import { motion } from "framer-motion";
 
 import Slider from "react-slick";
+import { MotionBox, MotionStack } from "@/components/ChakraFramer";
 
 type Category = {
   name: string;
@@ -36,13 +36,10 @@ const NewsSection = () => {
         py={"4em"}
         px={["none", "none", "6em", "6em", "6em"]}
       >
-        <motion.div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginBottom: "2em",
-          }}
+        <MotionStack
+          justifyContent={"center"}
+          alignItems={"center"}
+          marginBottom={"2em"}
           viewport={{ once: true }}
           initial={{
             opacity: 0,
@@ -52,6 +49,7 @@ const NewsSection = () => {
             opacity: 1,
             y: 0,
           }}
+          // @ts-expect-error chakra ui typescript error
           transition={{
             duration: 1,
             ease: "easeOut",
@@ -62,7 +60,7 @@ const NewsSection = () => {
             src="/assets/TextLogoNews.svg"
             w={["16em", "20em", "22em", "24em", "24em"]}
           />
-        </motion.div>
+        </MotionStack>
         {isLoading && (
           <Stack align={"center"} justify={"center"}>
             <Spinner />
@@ -73,11 +71,12 @@ const NewsSection = () => {
           {data && (
             <Wrap spacing={"1em"} justify="center" style={{ gap: "1em" }}>
               {data.data.map((news, index) => (
-                <motion.div
+                <MotionBox
                   key={index}
                   viewport={{ once: true }}
                   initial={{ opacity: 0, y: -10 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  // @ts-expect-error chakra ui typescript error
                   transition={{
                     duration: 0.5,
                     delay: index * 0.2,
@@ -85,7 +84,7 @@ const NewsSection = () => {
                   }}
                 >
                   <NewsCard data={news} />
-                </motion.div>
+                </MotionBox>
               ))}
             </Wrap>
           )}

@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { MotionBox } from "./ChakraFramer";
 
 const ScrollDownAnim = () => {
   return (
@@ -12,27 +12,25 @@ const ScrollDownAnim = () => {
       //   align={"center"}
       //   justify={"center"}
     >
-      <motion.div
+      <MotionBox
+        w={"0.25em"}
+        h={"0.5em"}
+        bgColor={"#003D73"}
+        rounded={"full"}
+        pos={"relative"}
+        top={"0.5em"}
+        left={"0.5em"}
         animate={{
           y: [0, 10],
         }}
+        //@ts-expect-error chakra ui typescript error
         transition={{
           duration: 1,
           repeat: Infinity,
           repeatType: "loop",
           ease: "easeOut",
         }}
-      >
-        <Box
-          w={"0.25em"}
-          h={"0.5em"}
-          bgColor={"#003D73"}
-          rounded={"full"}
-          pos={"relative"}
-          top={"0.5em"}
-          left={"0.5em"}
-        />
-      </motion.div>
+      />
     </Box>
   );
 };

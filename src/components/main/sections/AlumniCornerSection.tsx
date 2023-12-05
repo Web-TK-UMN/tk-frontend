@@ -9,9 +9,9 @@ import {
 } from "@chakra-ui/react";
 import AlumniProfile from "@/components/main/AlumniProfile";
 import Slider from "react-slick";
-import { motion } from "framer-motion";
 import { RxChevronLeft, RxChevronRight } from "react-icons/rx";
 import { useRef } from "react";
+import { MotionBox, MotionStack } from "@/components/ChakraFramer";
 
 const alumnis = [
   {
@@ -57,7 +57,7 @@ const AlumniCornerSectionSection = () => {
       justify={"center"}
       py={"4em"}
     >
-      <motion.div
+      <MotionBox
         viewport={{ once: true }}
         initial={{
           opacity: 0,
@@ -67,6 +67,7 @@ const AlumniCornerSectionSection = () => {
           opacity: 1,
           y: 0,
         }}
+        // @ts-expect-error chakra ui typescript error
         transition={{
           duration: 1,
           ease: "easeOut",
@@ -78,9 +79,9 @@ const AlumniCornerSectionSection = () => {
           src={"/assets/TextAlumniCorner.svg"}
           w={["18em", "18em", "24em", "24em", "24em"]}
         />
-      </motion.div>
+      </MotionBox>
 
-      <motion.div
+      <MotionBox
         viewport={{ once: true }}
         initial={{
           opacity: 0,
@@ -90,6 +91,7 @@ const AlumniCornerSectionSection = () => {
           opacity: 1,
           y: 0,
         }}
+        // @ts-expect-error chakra ui typescript error
         transition={{
           duration: 1,
           ease: "easeOut",
@@ -127,7 +129,11 @@ const AlumniCornerSectionSection = () => {
                     picUrl: alumni.picUrl,
                   }}
                 />
-                <motion.div
+                <MotionStack
+                  flex={1}
+                  m={["none", "none", "none", "3em", "3em"]}
+                  p={"2em"}
+                  border={"4px solid white"}
                   initial={{
                     opacity: 0,
                     y: -10,
@@ -136,26 +142,20 @@ const AlumniCornerSectionSection = () => {
                     opacity: 1,
                     y: 0,
                   }}
+                  // @ts-expect-error chakra ui typescript error
                   transition={{
                     duration: 1,
                     ease: "easeOut",
                     delay: 0.5,
                   }}
                 >
-                  <Stack
-                    flex={1}
-                    m={["none", "none", "none", "3em", "3em"]}
-                    p={"2em"}
-                    border={"4px solid white"}
-                  >
-                    <Text textColor={"white"}>{alumni.quotes}</Text>
-                  </Stack>
-                </motion.div>
+                  <Text textColor={"white"}>{alumni.quotes}</Text>
+                </MotionStack>
               </Stack>
             </Box>
           ))}
         </Slider>
-      </motion.div>
+      </MotionBox>
 
       {/* custom button react slick */}
       <Stack

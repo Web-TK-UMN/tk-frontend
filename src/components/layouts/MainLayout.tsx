@@ -1,9 +1,10 @@
 import { Stack, Heading, Image, Divider, Button } from "@chakra-ui/react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
 import { ReactNode } from "react";
 import Footer from "@/components/GenericFooter";
 import ScrollDownAnim from "@/components/ScrollDownAnim";
 import Navbar from "@/components//main/Navbar";
+import { MotionStack } from "../ChakraFramer";
 
 const MainLayout = ({
   children,
@@ -46,7 +47,12 @@ const MainLayout = ({
             top={0}
           >
             <Stack flex={1} align={"center"} justify={"center"}>
-              <motion.div
+              <MotionStack
+                flexDir={"row"}
+                alignItems={"center"}
+                justifyContent={"center"}
+                gap={["1em", "1em", "2em", "2em", "2em"]}
+                // anim
                 viewport={{ once: true }}
                 initial={{
                   opacity: 0,
@@ -56,6 +62,7 @@ const MainLayout = ({
                   opacity: 1,
                   y: 0,
                 }}
+                // @ts-expect-error chakra ui typescript error
                 transition={{
                   duration: 1,
                   ease: "easeOut",
@@ -65,35 +72,28 @@ const MainLayout = ({
                   scale: scaled,
                 }}
               >
-                <Stack
-                  direction={"row"}
-                  align={"center"}
-                  justify={"center"}
-                  gap={["1em", "1em", "2em", "2em", "2em"]}
+                <Image
+                  w={["2em", "3em", "4em", "6em", "6em"]}
+                  src="/assets/logo_umn.png"
+                />
+                <Divider
+                  orientation="vertical"
+                  h={"3em"}
+                  opacity={1}
+                  variant={"solid"}
+                  borderColor={"#003D73"}
+                  bgColor={"#003D73"}
+                  rounded={"xl"}
+                  borderWidth={"1px"}
+                />
+                <Heading
+                  color={"#003D73"}
+                  size={["xl", "2xl", "2xl", "4xl", "4xl"]}
+                  textShadow="0px 1px 5px rgba(0,0,0,0.25)"
                 >
-                  <Image
-                    w={["2em", "3em", "4em", "6em", "6em"]}
-                    src="/assets/logo_umn.png"
-                  />
-                  <Divider
-                    orientation="vertical"
-                    h={"3em"}
-                    opacity={1}
-                    variant={"solid"}
-                    borderColor={"#003D73"}
-                    bgColor={"#003D73"}
-                    rounded={"xl"}
-                    borderWidth={"1px"}
-                  />
-                  <Heading
-                    color={"#003D73"}
-                    size={["xl", "2xl", "2xl", "4xl", "4xl"]}
-                    textShadow="0px 1px 5px rgba(0,0,0,0.25)"
-                  >
-                    TEKNIK KOMPUTER
-                  </Heading>
-                </Stack>
-              </motion.div>
+                  TEKNIK KOMPUTER
+                </Heading>
+              </MotionStack>
             </Stack>
             <Button
               variant={"unstyled"}

@@ -27,10 +27,10 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
 import { FaBars, FaCaretLeft, FaChevronDown } from "react-icons/fa6";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import useSWR from "swr";
+import { MotionBox, MotionStack } from "../ChakraFramer";
 
 type CategoryDto = {
   items: {
@@ -81,14 +81,11 @@ const Navbar = () => {
         gap={"1em"}
         transition={"all 0.2s ease-in-out"}
       >
-        <motion.div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "row",
-            gap: "0.5em",
-          }}
+        <MotionStack
+          justifyContent={"center"}
+          alignItems={"center"}
+          flexDirection={"row"}
+          gap={"0.5em"}
           viewport={{ once: true }}
           initial={{
             opacity: 0,
@@ -98,6 +95,7 @@ const Navbar = () => {
             opacity: 1,
             x: 0,
           }}
+          // @ts-expect-error chakra ui typescript error
           transition={{
             duration: 1,
             ease: "easeOut",
@@ -118,7 +116,7 @@ const Navbar = () => {
           <Heading size={"md"} color={"#003D73"}>
             TEKNIK KOMPUTER
           </Heading>
-        </motion.div>
+        </MotionStack>
       </Stack>
 
       <Show above="md">
@@ -128,7 +126,7 @@ const Navbar = () => {
           color={"#003D73"}
           fontSize={"medium"}
         >
-          <motion.div
+          <MotionBox
             viewport={{ once: true }}
             initial={{
               opacity: 0,
@@ -138,6 +136,7 @@ const Navbar = () => {
               opacity: 1,
               x: 0,
             }}
+            // @ts-expect-error chakra ui typescript error
             transition={{
               duration: 1,
               ease: "easeOut",
@@ -159,7 +158,7 @@ const Navbar = () => {
             >
               Home
             </Button>
-          </motion.div>
+          </MotionBox>
           {isLoading && (
             <Stack direction={"row"} align={"center"} gap={"0.5em"}>
               <Spinner size={"xs"} />
@@ -171,11 +170,12 @@ const Navbar = () => {
             data.map((category, index) => (
               <Popover trigger="hover">
                 <PopoverTrigger>
-                  <motion.div
+                  <MotionBox
                     key={index}
                     viewport={{ once: true }}
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
+                    // @ts-expect-error chakra ui typescript error
                     transition={{
                       duration: 0.5,
                       delay: 0.5 + index * 0.2,
@@ -196,7 +196,7 @@ const Navbar = () => {
                     >
                       {category.name}
                     </Button>
-                  </motion.div>
+                  </MotionBox>
                 </PopoverTrigger>
                 <PopoverContent
                   w={"16em"}
@@ -240,7 +240,7 @@ const Navbar = () => {
       </Show>
 
       <Show below="md">
-        <motion.div
+        <MotionBox
           viewport={{ once: true }}
           initial={{
             opacity: 0,
@@ -250,6 +250,7 @@ const Navbar = () => {
             opacity: 1,
             x: 0,
           }}
+          // @ts-expect-error chakra ui typescript error
           transition={{
             duration: 1,
             ease: "easeOut",
@@ -264,7 +265,7 @@ const Navbar = () => {
             icon={<FaBars />}
             onClick={onOpen}
           />
-        </motion.div>
+        </MotionBox>
 
         <Drawer placement={"right"} onClose={onClose} isOpen={isOpen}>
           <DrawerOverlay backdropFilter={"blur(4px)"} />
@@ -282,7 +283,7 @@ const Navbar = () => {
                 }
               >
                 <Stack gap={"1em"}>
-                  <motion.div
+                  <MotionBox
                     viewport={{ once: true }}
                     initial={{
                       opacity: 0,
@@ -292,6 +293,7 @@ const Navbar = () => {
                       opacity: 1,
                       y: 0,
                     }}
+                    // @ts-expect-error chakra ui typescript error
                     transition={{
                       duration: 0.25,
                       ease: "easeOut",
@@ -335,7 +337,7 @@ const Navbar = () => {
                         <Text as={"span"}>Home</Text>
                       </AccordionButton>
                     </AccordionItem>
-                  </motion.div>
+                  </MotionBox>
                   {isLoading && (
                     <Stack direction={"row"} align={"center"} gap={"0.5em"}>
                       <Spinner size={"xs"} />
@@ -345,7 +347,7 @@ const Navbar = () => {
 
                   {data &&
                     data.map((category, index) => (
-                      <motion.div
+                      <MotionBox
                         key={index}
                         viewport={{ once: true }}
                         initial={{
@@ -356,6 +358,7 @@ const Navbar = () => {
                           opacity: 1,
                           y: 0,
                         }}
+                        // @ts-expect-error chakra ui typescript error
                         transition={{
                           duration: 0.25,
                           ease: "easeOut",
@@ -470,7 +473,7 @@ const Navbar = () => {
                             ))}
                           </AccordionPanel>
                         </AccordionItem>
-                      </motion.div>
+                      </MotionBox>
                     ))}
                 </Stack>
               </Accordion>

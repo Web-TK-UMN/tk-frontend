@@ -1,6 +1,6 @@
 import { createIcon, Stack, Text, Heading, Icon } from "@chakra-ui/react";
-import { motion } from "framer-motion";
 import { FaUserGraduate } from "react-icons/fa6";
+import { MotionBox, MotionImage } from "../ChakraFramer";
 
 const Triangle = createIcon({
   displayName: "Triangle",
@@ -17,7 +17,7 @@ type Alumni = {
 const AlumniProfile = ({ data }: { data: Alumni }) => {
   return (
     <Stack pos={"relative"} h={"23em"} w={"20em"} overflow={"hidden"}>
-      <motion.div
+      <MotionBox
         initial={{
           y: 25,
           opacity: 0,
@@ -28,6 +28,7 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
           opacity: 1,
           zIndex: 1,
         }}
+        // @ts-expect-error chakra ui typescript error
         transition={{
           duration: 1,
           ease: "easeOut",
@@ -44,9 +45,9 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
           strokeWidth={"0.5em"}
           zIndex={1}
         />
-      </motion.div>
+      </MotionBox>
 
-      <motion.div
+      <MotionBox
         initial={{
           y: 25,
           opacity: 0,
@@ -57,6 +58,7 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
           opacity: 1,
           zIndex: 2,
         }}
+        // @ts-expect-error chakra ui typescript error
         transition={{
           duration: 1,
           delay: 0.2,
@@ -74,9 +76,9 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
           strokeWidth={"1em"}
           zIndex={2}
         />
-      </motion.div>
+      </MotionBox>
 
-      <motion.div
+      <MotionBox
         initial={{
           y: 25,
           opacity: 0,
@@ -87,6 +89,7 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
           opacity: 1,
           zIndex: 3,
         }}
+        // @ts-expect-error chakra ui typescript error
         transition={{
           duration: 1,
           delay: 0.4,
@@ -104,11 +107,11 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
           strokeWidth={"1em"}
           zIndex={3}
         />
-      </motion.div>
+      </MotionBox>
 
       {/* kiri kanan */}
 
-      <motion.div
+      <MotionBox
         initial={{
           y: 25,
           opacity: 0,
@@ -119,6 +122,7 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
           opacity: 1,
           zIndex: 4,
         }}
+        // @ts-expect-error chakra ui typescript error
         transition={{
           duration: 1,
           delay: 0.6,
@@ -134,9 +138,9 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
           color={"#FD8E09"}
           zIndex={2}
         />
-      </motion.div>
+      </MotionBox>
 
-      <motion.div
+      <MotionBox
         initial={{
           y: 25,
           opacity: 0,
@@ -147,6 +151,7 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
           opacity: 1,
           zIndex: 4,
         }}
+        // @ts-expect-error chakra ui typescript error
         transition={{
           duration: 1,
           delay: 0.8,
@@ -163,7 +168,7 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
           color={"white"}
           zIndex={2}
         />
-      </motion.div>
+      </MotionBox>
 
       <Stack
         pos={"absolute"}
@@ -173,7 +178,7 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
         zIndex={5}
         gap={0}
       >
-        <motion.img
+        <MotionImage
           style={{
             height: "100%",
             width: "100%",
@@ -187,6 +192,7 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
             y: 0,
             opacity: 1,
           }}
+          // @ts-expect-error chakra ui typescript error
           transition={{
             duration: 0.5,
             // delay: 0.2,
@@ -207,7 +213,7 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
           zIndex={5}
           color={"#013D71"}
         >
-          <motion.div
+          <MotionBox
             style={{
               display: "flex",
               alignItems: "center",
@@ -221,6 +227,7 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
               y: 0,
               opacity: 1,
             }}
+            // @ts-expect-error chakra ui typescript error
             transition={{
               duration: 1,
               delay: 0.2,
@@ -230,7 +237,7 @@ const AlumniProfile = ({ data }: { data: Alumni }) => {
             <Heading size={"lg"}>{data.batch}</Heading>
             <Icon as={FaUserGraduate} boxSize={"1.25em"} mx={"0.25em"} />
             <Text>- {data.name}</Text>
-          </motion.div>
+          </MotionBox>
         </Stack>
       </Stack>
     </Stack>
