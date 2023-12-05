@@ -1,11 +1,10 @@
-import { Stack, Image, Wrap, Spinner, Text, Show, Box } from "@chakra-ui/react";
+import { Stack, Image, Wrap, Spinner, Text, Show } from "@chakra-ui/react";
 import NewsCard from "@/components/NewsCard";
 import useSWR from "swr";
 import axios from "axios";
 import { motion } from "framer-motion";
 
 import Slider from "react-slick";
-import { useEffect } from "react";
 
 type Category = {
   name: string;
@@ -31,10 +30,11 @@ const NewsSection = () => {
   return (
     <>
       <Stack
-        bgImage={"/assets/bgNews.png"}
+        // bgImage={"/assets/bgNews.png"}
         bgSize="cover"
         bgPosition="center"
         py={"4em"}
+        px={["none", "none", "6em", "6em", "6em"]}
       >
         <motion.div
           style={{
@@ -90,7 +90,6 @@ const NewsSection = () => {
             </Wrap>
           )}
         </Show>
-
         <Show below="md">
           {data && (
             <Slider

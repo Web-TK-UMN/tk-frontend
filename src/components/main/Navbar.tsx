@@ -65,7 +65,7 @@ const Navbar = () => {
       direction={"row"}
       align={"center"}
       justify={"space-between"}
-      px={["1em", "1em", "4em", "4em", "4em"]}
+      px={["2em", "2em", "6em", "6em", "6em"]}
       boxShadow={"0px 4px 8px -2px rgba(0, 0, 0, 0.1)"}
       pos={"sticky"}
       top={0}

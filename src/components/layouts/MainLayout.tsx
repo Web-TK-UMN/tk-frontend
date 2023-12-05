@@ -132,6 +132,7 @@ const MainLayout = ({
           backgroundAttachment={"fixed"}
           bgPos={"center"}
           bgSize={"cover"}
+          overflowX={"hidden"}
         >
           {children}
         </Stack>
