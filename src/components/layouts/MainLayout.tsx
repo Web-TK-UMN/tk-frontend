@@ -1,7 +1,8 @@
 import { Stack, Heading, Image, Divider, Button } from "@chakra-ui/react";
 import { useScroll, useTransform } from "framer-motion";
 import { ReactNode } from "react";
-import Footer from "@/components/GenericFooter";
+// import Footer from "@/components/GenericFooter";
+import Footer from "@/components/Footer";
 import ScrollDownAnim from "@/components/ScrollDownAnim";
 import Navbar from "@/components//main/Navbar";
 import { MotionStack } from "../ChakraFramer";
@@ -17,7 +18,7 @@ const MainLayout = ({
   const scaled = useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
 
   return (
-    <Stack minH={"100vh"}>
+    <Stack minH={"100vh"} gap={0}>
       {isIndex && (
         <>
           <Stack
@@ -136,8 +137,9 @@ const MainLayout = ({
         >
           {children}
         </Stack>
+
+        <Footer />
       </Stack>
-      <Footer />
     </Stack>
   );
 };
