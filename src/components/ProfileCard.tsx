@@ -26,13 +26,14 @@ const ProfileCard = ({
 }) => {
   return (
     <Stack
-      w={["28em", "28em", "30em", "30em", "30em"]}
+      w={["24em", "24em", "30em", "30em", "30em"]}
       h={["18em", "18em", "16em", "16em", "16em"]}
       rounded={"2xl"}
       bgImage={"/assets/gedung_profile.png"}
       bgPos={"center"}
       bgSize={"cover"}
       pos={"relative"}
+      boxShadow={"0px 2px 8px rgba(0, 0, 0, 0.25)"}
     >
       <Stack
         pos={"absolute"}
@@ -81,7 +82,11 @@ const ProfileCard = ({
               </Stack>
             </Stack>
           </Stack>
-          <Stack direction={"row"} align={"end"} justify={"end"}>
+          <Stack
+            direction={["column", "column", "row", "row", "row"]}
+            align={"end"}
+            justify={"end"}
+          >
             <Button
               as={Link}
               href={profile.profileUrl}
@@ -93,7 +98,7 @@ const ProfileCard = ({
               px={"1em"}
               display={"flex"}
               alignItems={"center"}
-              bgGradient={"linear(to-b, #232935, #5D6472)"}
+              bgGradient={"linear(to-b, #055EAE, #003D73)"}
               fontSize={"0.75em"}
             >
               Profile
@@ -109,7 +114,7 @@ const ProfileCard = ({
               px={"1em"}
               display={"flex"}
               alignItems={"center"}
-              bgGradient={"linear(to-b, #232935, #5D6472)"}
+              bgGradient={"linear(to-b, #055EAE, #003D73)"}
               fontSize={"0.75em"}
             >
               Handbook
@@ -125,8 +130,8 @@ const ProfileCard = ({
         src={profile.picUrl}
         rounded={"full"}
         outline={"4px solid white"}
-        top={"2.5em"}
-        left={"1.5em"}
+        top={["3em", "3em", "2.5em", "2.5em", "2.5em"]}
+        left={["1.5em", "1.5em", "1.5em", "1.5em", "1.5em"]}
       />
       {isEditable && (
         <Button

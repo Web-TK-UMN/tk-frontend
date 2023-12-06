@@ -12,6 +12,7 @@ const Footer = () => {
       align={"center"}
       justify={"center"}
       textAlign={"center"}
+      zIndex={2}
     >
       <Text color={"white"}>
         © 2023 | Fakultas Teknik & Informatika, Universitas Multimedia Nusantara
