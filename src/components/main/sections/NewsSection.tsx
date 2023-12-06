@@ -105,7 +105,8 @@ const NewsSection = () => {
               pauseOnHover={true}
               pauseOnFocus={true}
               easing="ease-in-out"
-              centerMode={true}
+              centerMode
+              centerPadding="35px"
             >
               {data.data.map((news) => (
                 <NewsCard data={news} />
