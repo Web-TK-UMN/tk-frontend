@@ -49,6 +49,7 @@ const AlumniCornerSectionSection = () => {
 
   return (
     <Stack
+      id="alumni"
       bgImage={"/assets/bgUMNblue.png"}
       bgSize={"cover"}
       bgPos={"center"}

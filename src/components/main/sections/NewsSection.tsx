@@ -30,6 +30,7 @@ const NewsSection = () => {
   return (
     <>
       <Stack
+        id="news"
         // bgImage={"/assets/bgNews.png"}
         bgSize="cover"
         bgPosition="center"

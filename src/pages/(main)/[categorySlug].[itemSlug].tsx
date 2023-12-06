@@ -9,11 +9,12 @@ import {
   Stack,
   Text,
   Wrap,
+  Image,
 } from "@chakra-ui/react";
 import useSWR from "swr";
 
 import { motion } from "framer-motion";
-import { MotionBox, MotionStack } from "@/components/ChakraFramer";
+import { MotionBox, MotionImage, MotionStack } from "@/components/ChakraFramer";
 
 type Author = {
   name: string;
@@ -147,6 +148,29 @@ const DynamicContent = () => {
         px={["2em", "2em", "6em", "6em", "6em"]}
         roundedBottom={"xl"}
       >
+        <MotionImage
+          src="/assets/circuit_ornaments_vertical.svg"
+          pos={"absolute"}
+          top={"24em"}
+          w={["1.5em", "1.5em", "3em", "3em", "3em"]}
+          transform="scaleY(-1)"
+          left={0}
+          viewport={{ once: true }}
+          initial={{
+            opacity: 0,
+            x: -10,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+          }}
+          // @ts-expect-error chakra ui typescript error
+          transition={{
+            duration: 1,
+            ease: "easeOut",
+            delay: 0.5,
+          }}
+        />
         <MotionStack
           key={data.id}
           gap={"0.5em"}

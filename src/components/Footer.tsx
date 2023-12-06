@@ -1,4 +1,6 @@
 import { Stack, Text, Image, Link } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
+
 import GenericFooter from "@/components/GenericFooter";
 const Footer = () => {
   return (
@@ -61,13 +63,23 @@ const Footer = () => {
               </Stack>
               <Stack flex={"1"}>
                 <Text fontSize={"xl"} fontWeight={"semibold"}>
-                  Pages
+                  Sections
                 </Text>
-                <Link>Home</Link>
-                <Link>Academic Profile</Link>
-                <Link>Career Prospects</Link>
-                <Link>Alumni Corner</Link>
-                <Link>News</Link>
+                <Link as={RouterLink} to={"/"}>
+                  Home
+                </Link>
+                <Link as={RouterLink} to={"/#academic"}>
+                  Academic Profile
+                </Link>
+                <Link as={RouterLink} to={"/#career"}>
+                  Career Prospects
+                </Link>
+                <Link as={RouterLink} to={"/#alumni"}>
+                  Alumni Corner
+                </Link>
+                <Link as={RouterLink} to={"/#news"}>
+                  News
+                </Link>
               </Stack>
             </Stack>
           </Stack>

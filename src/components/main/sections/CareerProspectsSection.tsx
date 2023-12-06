@@ -14,6 +14,7 @@ const careerData = [
 const CareerProspectsSection = () => {
   return (
     <Stack
+      id="career"
       direction={"column"}
       align={"center"}
       py={"4em"}

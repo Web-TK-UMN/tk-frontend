@@ -1,3 +1,4 @@
+import ScrollToHashElement from "@/components/ScrollToHash";
 import CMSLayout from "@/components/layouts/CMSLayout";
 import { useFetcher } from "@/hooks/useApi";
 import { useAuth } from "@/hooks/useAuth";
@@ -44,7 +45,9 @@ const CMSMainLayout = () => {
         refreshInterval: 60 * 1000,
       }}
     >
+      <ScrollToHashElement />
       <CMSLayout>
+        <ScrollToHashElement />
         <Outlet />
       </CMSLayout>
     </SWRConfig>
