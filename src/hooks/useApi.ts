@@ -49,6 +49,8 @@ const useApi = () => {
           toast({
             title: "Unauthorized",
             description: "Request is unauthorized, please re login.",
+            status: "error",
+            isClosable: true,
           });
         }
         return Promise.reject(error);
