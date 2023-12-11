@@ -2,7 +2,7 @@ import axios, { AxiosError, isAxiosError } from "axios";
 import { useAuth } from "@/hooks/useAuth";
 import { useEffect } from "react";
 import { useToast } from "@chakra-ui/react";
-import { useNavigate } from "@/router";
+// import { useNavigate } from "@/router";
 export const baseUrl =
   import.meta.env.VITE_API_BASE_URL ?? "http://localhost:3000";
 
@@ -30,7 +30,8 @@ export enum Responses {
 
 const useApi = () => {
   const auth = useAuth();
-  const nav = useNavigate();
+  // const nav = useNavigate();
+  const toast = useToast();
 
   useEffect(() => {
     if (auth.user) {
@@ -44,7 +45,13 @@ const useApi = () => {
       (error) => {
         if (error.response.status === 401) {
           auth.logout();
-          nav("/cms/login");
+          // nav("/cms/login");
+          toast({
+            title: "Unauthorized",
+            description: "Request is unauthorized, please re login.",
+            status: "error",
+            isClosable: true,
+          });
         }
         return Promise.reject(error);
       }

@@ -114,7 +114,7 @@ const Navbar = () => {
             borderWidth={"0.05em"}
           />
           <Heading size={"md"} color={"#003D73"}>
-            TEKNIK KOMPUTER
+            COMPUTER ENGINEERING
           </Heading>
         </MotionStack>
       </Stack>

@@ -92,7 +92,7 @@ const MainLayout = ({
                   size={["xl", "2xl", "2xl", "4xl", "4xl"]}
                   textShadow="0px 1px 5px rgba(0,0,0,0.25)"
                 >
-                  TEKNIK KOMPUTER
+                  COMPUTER ENGINEERING
                 </Heading>
               </MotionStack>
             </Stack>
