@@ -48,7 +48,7 @@ const useApi = () => {
           // nav("/cms/login");
           toast({
             title: "Unauthorized",
-            description: "Request is unauthorized, please re login.",
+            description: "Request is unauthorized, please re try or re login.",
             status: "error",
             isClosable: true,
           });
