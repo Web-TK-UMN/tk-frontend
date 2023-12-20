@@ -89,8 +89,8 @@ const MainLayout = ({
                 />
                 <Heading
                   color={"#003D73"}
-                  size={["xl", "2xl", "2xl", "4xl", "4xl"]}
-                  textShadow="0px 1px 5px rgba(0,0,0,0.25)"
+                  size={["md", "xl", "xl", "3xl", "4xl"]}
+                  // textShadow="0px 1px 5px rgba(0,0,0,0.25)"
                 >
                   COMPUTER ENGINEERING
                 </Heading>

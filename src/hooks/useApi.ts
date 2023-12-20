@@ -44,11 +44,11 @@ const useApi = () => {
       (response) => response,
       (error) => {
         if (error.response.status === 401) {
-          auth.logout();
+          // auth.logout();
           // nav("/cms/login");
           toast({
             title: "Unauthorized",
-            description: "Request is unauthorized, please re login.",
+            description: "Request is unauthorized, please re try or re login.",
             status: "error",
             isClosable: true,
           });

@@ -24,32 +24,32 @@ const teamMembers: Member[] = [
   {
     name: "Fathan Ridhwan",
     role: "Leader & Fullstack Dev",
-    photo: "/assets/fathan.jpg",
+    photo: "/assets/author/fathan.jpg",
   },
   {
     name: "Dimas Takeda",
     role: "Frontend Dev",
-    photo: "/assets/dimas.jpg",
+    photo: "/assets/author/dimas.png",
   },
   {
     name: "Alvin Yohannes",
     role: "Frontend Dev",
-    photo: "/assets/alvin.jpg",
+    photo: "/assets/author/alvin.jpeg",
   },
   {
     name: "Albert Tirto",
     role: "UI/UX Designer",
-    photo: "/assets/albert.jpg",
+    photo: "/assets/author/albert.png",
   },
   {
     name: "Rafael Herdani",
     role: "UI/UX Designer",
-    photo: "/assets/pael.jpg",
+    photo: "/assets/author/pael.jpg",
   },
   {
     name: "Paskasius Gian",
     role: "UI/UX Dev",
-    photo: "/assets/gian.jpg",
+    photo: "/assets/author/gian.png",
   },
 ];
 
