@@ -729,8 +729,8 @@ const CategoryPanel = () => {
                     {...addItemForm.register("title", {
                       required: "Item title is required",
                       maxLength: {
-                        value: 20,
-                        message: "Item title must be less than 20 characters",
+                        value: 50,
+                        message: "Item title must be less than 50 characters",
                       },
                     })}
                   />
