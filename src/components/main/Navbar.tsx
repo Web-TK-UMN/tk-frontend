@@ -199,14 +199,14 @@ const Navbar = () => {
                   </MotionBox>
                 </PopoverTrigger>
                 <PopoverContent
-                  w={"16em"}
+                  w={"fit-content"}
+                  minW={"16em"}
                   minH={"3em"}
                   rounded={"xl"}
                   border={"none"}
-                  gap={"5em"}
                   boxShadow={"0px 4px 8px -2px rgba(0, 0, 0, 0.1)"}
                 >
-                  <PopoverBody>
+                  <PopoverBody display={"flex"} flexDir={"column"}>
                     {category.items.map((item) => (
                       <Link
                         as={item.type === "LINK" ? undefined : RouterLink}
