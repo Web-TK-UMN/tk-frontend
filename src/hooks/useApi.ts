@@ -44,7 +44,7 @@ const useApi = () => {
       (response) => response,
       (error) => {
         if (error.response.status === 401) {
-          auth.logout();
+          // auth.logout();
           // nav("/cms/login");
           toast({
             title: "Unauthorized",
