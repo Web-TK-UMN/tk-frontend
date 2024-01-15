@@ -33,7 +33,7 @@ const Footer = () => {
               Fakultas Teknik & Informatika <br />
               Universitas Multimedia Nusantara
             </Text>
-            <Text fontSize={"md"}>
+            <Text fontSize={"md"} textAlign={"justify"}>
               Jl. Scientia Boulevard, Gading Serpong, Kel. Curug <br />
               Sangereng, Kec. Kelapa Dua, Kab. Tangerang, Prov. <br />
               Banten 15810, Indonesia

@@ -15,7 +15,7 @@ const Footer = () => {
       zIndex={2}
     >
       <Text color={"white"}>
-        © 2023 | Fakultas Teknik & Informatika, Universitas Multimedia Nusantara
+        © 2024 | Fakultas Teknik & Informatika, Universitas Multimedia Nusantara
       </Text>
     </Stack>
   );

@@ -64,7 +64,7 @@ const IndexPage = () => {
       <Statistic /> */}
       <KaprodiSection />
       <CareerProspectsSection />
-      <AlumniCornerSectionSection />
+      {/* <AlumniCornerSectionSection /> */}
       <NewsSection />
     </Stack>
   );
