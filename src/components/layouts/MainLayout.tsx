@@ -1,11 +1,12 @@
 import { Stack, Heading, Image, Divider, Button } from "@chakra-ui/react";
 import { useScroll, useTransform } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 // import Footer from "@/components/GenericFooter";
 import Footer from "@/components/Footer";
 import ScrollDownAnim from "@/components/ScrollDownAnim";
 import Navbar from "@/components//main/Navbar";
 import { MotionStack } from "../ChakraFramer";
+import useOnScreen from "@/hooks/useIntersection";
 
 const MainLayout = ({
   children,
@@ -16,6 +17,20 @@ const MainLayout = ({
 }) => {
   const { scrollYProgress } = useScroll();
   const scaled = useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const mainRef = useRef<HTMLDivElement>(null);
+  const mainVisible = useOnScreen(mainRef);
+
+  useEffect(() => {
+    if (mainVisible) {
+      videoRef.current?.pause();
+      console.log("pause");
+    } else {
+      videoRef.current?.play();
+      console.log("play");
+    }
+  }, [mainVisible]);
 
   return (
     <Stack minH={"100vh"} gap={0}>
@@ -36,6 +51,7 @@ const MainLayout = ({
             zIndex={-1}
             top={0}
             left={0}
+            ref={videoRef}
           />
 
           <Stack
@@ -134,6 +150,7 @@ const MainLayout = ({
           bgPos={"center"}
           bgSize={"cover"}
           overflowX={"hidden"}
+          ref={mainRef}
         >
           {children}
         </Stack>
