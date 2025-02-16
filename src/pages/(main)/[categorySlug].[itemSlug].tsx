@@ -22,7 +22,7 @@ import useSWR from "swr";
 
 import { motion } from "framer-motion";
 import { MotionBox, MotionImage, MotionStack } from "@/components/ChakraFramer";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router";
 import { FaCaretLeft } from "react-icons/fa6";
 
 type CategoryDto = {

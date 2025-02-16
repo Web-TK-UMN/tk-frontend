@@ -28,7 +28,7 @@ import {
   AccordionPanel,
 } from "@chakra-ui/react";
 import { FaBars, FaCaretLeft, FaChevronDown } from "react-icons/fa6";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router";
 import useSWR from "swr";
 import { MotionBox, MotionStack } from "../ChakraFramer";
 

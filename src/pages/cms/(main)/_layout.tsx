@@ -5,7 +5,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useNavigate } from "@/router";
 import { Spinner, Stack, Text, useToast } from "@chakra-ui/react";
 import { useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 import { SWRConfig } from "swr";
 
 const CMSMainLayout = () => {

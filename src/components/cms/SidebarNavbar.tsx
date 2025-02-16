@@ -42,7 +42,7 @@ import {
 } from "@chakra-ui/react";
 
 import useSwr, { mutate } from "swr";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router";
 
 import {
   FaBars,

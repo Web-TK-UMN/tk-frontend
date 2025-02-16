@@ -4,7 +4,7 @@ import AlumniCornerSectionSection from "@/components/main/sections/AlumniCornerS
 import KaprodiSection from "@/components/main/sections/KaprodiSection";
 import NewsSection from "@/components/main/sections/NewsSection";
 import AcademicProfile from "@/components/main/sections/AcademicProfile";
-// import Statistic from "@/components/main/sections/Statistic";
+import Statistic from "@/components/main/sections/Statistic";
 import { MotionImage } from "@/components/ChakraFramer";
 
 const IndexPage = () => {
@@ -59,12 +59,11 @@ const IndexPage = () => {
         }}
       />
       <AcademicProfile />
-      {/* 
-        Bu Monic minta ini di hapus
-      <Statistic /> */}
+      {/* Bu Monic minta ini di hapus */}
+      <Statistic />
       <KaprodiSection />
       <CareerProspectsSection />
-      {/* <AlumniCornerSectionSection /> */}
+      <AlumniCornerSectionSection />
       <NewsSection />
     </Stack>
   );
