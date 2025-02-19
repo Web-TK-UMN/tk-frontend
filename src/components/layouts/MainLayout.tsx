@@ -92,6 +92,7 @@ const MainLayout = ({
                 <Image
                   w={["2em", "3em", "4em", "6em", "6em"]}
                   src="/assets/logo_umn.png"
+                  alt="Universitas Multimedia Nusantara Logo"
                 />
                 <Divider
                   orientation="vertical"
